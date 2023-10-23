@@ -13,12 +13,18 @@ yy=@(x)[sqrt(1-x.^2);-sqrt(1-x.^2)];%enačba krožnice
 mat_y = yy(x);%v matriko doda + in - vrednosti y koordniat krožnice
 y1=mat_y(1,:);%+ koordniata
 y2=mat_y(2,:);%-koordinata
-plot(Notranja(:,1),Notranja(:,2),"cpentagram")%zriše točke znotraj kroga
-hold on
-plot(Zunanja(:,1),Zunanja(:,2),"g.")%zunanje točke
-plot(x,y1,"r.")%zgornja polovica
-plot(x,y2,"r.")%spodnja polovica
-hold off
+
+plot(Notranja(:,1),Notranja(:,2),"cpentagram");%zriše točke znotraj kroga
+hold on;
+plot(Zunanja(:,1),Zunanja(:,2),"g.");%zunanje točke
+plot(x,y1,"r.");%zgornja polovica
+plot(x,y2,"r.");%spodnja polovica
+legend('Notranje točke','Zunanje točke','Krožnica');
+xlabel('x');
+ylabel('y');
+title('Metoda Monte Carlo');
+
+hold off;
 
 function [priblizek,napaka] = area_pi(v_znotraj,v_zunaj)
 %Funkcija sprejme vektorja v_znotraj(vektor koordinat tock znotraj korga) in
